@@ -8,13 +8,13 @@ module quadadder_tb;
   wire Overflow;
   quadadder adn(.A(A),.B(B),.Sum(Sum),.Overflow(Overflow));
   initial begin
-    $dumpfile("nand.vcd");
+    $dumpfile("quadadder.vcd");
     $dumpvars(0,quadadder_tb);
     $monitor("At time t = %t, A = %b, B = %b, Sum = %b, Overflow = %b",$time,A,B,Sum,Overflow);
-    A=2;B=2;#20;
+    A=-4;B=-7;#20;
     A=4;B=4;#20;
-    A=6;B=6;#20;
-    A=8;B=8;#20;
+    A=-5;B=-3;#20;
+    A=-6;B=4;#20;
     $finish;
   end
 endmodule
@@ -91,10 +91,10 @@ module quadadder(
       bitadder inst(.A(A[i]),.B(B[i]),.Cin(C[i]),.Cout(C[i+1]),.Sum(Sum[i]));
     end
   endgenerate
-  assign Overflow = C[4];
+  Overflow = C[4];
 endmodule
 
-module XOR(
+module XOR1(
   input A,B,
   output Y
 );
