@@ -1,0 +1,7 @@
+import numpy as np
+import math as mt
+arr=np.linspace(0,1,10001)
+integral = 0
+for i in arr:
+    integral+=(mt.e**i)*0.0001
+print(integral)

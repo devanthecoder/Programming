@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="styles.css">
+    <title>Survey</title>
+  </head>
+  <body>
+    <h1 id="title">College Semester Survey Form</h1>
+    <p id="description">Please fill out this survey form on your recent Semester experience <piece>(don't expect us to change anything)</piece></p>
+    <form id="survey-form">
+      <fieldset>
+        <label id="name-label" for="name">Name: <input id="name" type="text" required placeholder="You know your name, don't you?"/></label>
+        <label id="number-label" for="number">Age: <input id="number" type="number" min="17" max="30" required placeholder="Same goes for your age."/></label>
+        <label id="email-label" for="email">Email: <input id="email" type="email" required placeholder="Your college sent you your email, right?"/></label>
+      </fieldset>
+      <fieldset>
+        <legend>What's your degree?</legend>
+        <label><input type="radio" name="degree" value="1" checked/> BTech</label>
+        <label><input type="radio" name="degree" value="2" checked/> BDes</label>
+        <label><input type="radio" name="degree" value="3" checked/> BSc</label>
+        <label><input type="radio" name="degree" value="4" checked/> MTech</label>
+        <label><input type="radio" name="degree" value="5" checked/> MSc</label>
+        <label><input type="radio" name="degree" value="6" checked/> PhD</label>
+      </fieldset>
+      <fieldset>
+        <label><legend>How are your feelings on college life as of now?</legend>
+          <select id="dropdown">
+            <option value="">(select one)</option>
+            <option value="1">Great! Loving it right now :D</option>
+            <option value="2">It's good for the most part :)</option>
+            <option value="3">Meh not too bad or too good :/</option>
+            <option value="4">Don't really like it all that much :(</option>
+            <option value="5">why did i join this college i regret everything</option>
+          </select>
+        </label>
+        <label>
+          <legend>What is going well for you right now?</legend>
+          <label><input type="checkbox" value="1"/> Academics</label>
+          <label><input type="checkbox" value="2"/> Social Life</label>
+          <label><input type="checkbox" value="3"/> Physical Health</label>
+          <label><input type="checkbox" value="4"/> Mental Health</label>
+        </label>
+         <label>
+          <legend>What is going average for you right now?</legend>
+          <label><input type="checkbox" value="1"/> Academics</label>
+          <label><input type="checkbox" value="2"/> Social Life</label>
+          <label><input type="checkbox" value="3"/> Physical Health</label>
+          <label><input type="checkbox" value="4"/> Mental Health</label>
+        </label>
+         <label>
+          <legend>What is going bad for you right now?</legend>
+          <label><input type="checkbox" value="1"/> Academics</label>
+          <label><input type="checkbox" value="2"/> Social Life</label>
+          <label><input type="checkbox" value="3"/> Physical Health</label>
+          <label><input type="checkbox" value="4"/> Mental Health</label>
+        </label>
+        <label><legend>Add any of your own additional comments if you want.</legend><textarea placeholder="If you have anything to add, type it out here."></textarea>
+      </fieldset>
+      <label for="submit"><input type="submit" id="submit" value="Submit?"/></label>
+    </form>
+  </body>
+</html>

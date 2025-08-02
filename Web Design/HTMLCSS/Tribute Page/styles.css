@@ -1,0 +1,121 @@
+*{
+    box-sizing:border-box;
+  }
+  html{
+    min-width:600px;
+  }
+  #mainmain{  background-color:#e0e0d0;
+  margin:5px;
+  padding-bottom:30px;
+  margin-bottom:50px;
+  }
+  body{
+  background-color:#f7f7e7;
+    color:#000060;
+    font-family: Roboto;
+    min-width:600px;
+  }
+  header{
+    margin-top:10px;
+    padding:10px 0;
+    text-align: center;
+    color:#000060;
+    background-color:#e0e0d0;
+    width:100%;
+  }
+  p{
+    margin:0;
+    font-size:20px;
+  }
+  #title{
+    margin:0 0 15px 0;
+    font-size: 50px;
+  }
+  #img-div{
+    margin:0 20px;
+  background-color:#f7f7e7;
+    display: flex;
+    flex-direction: column;
+  justify-content: center;
+    align-items:center;
+  gap: 10px;
+  text-align:center;
+  
+  }
+  #img-caption{
+    width: 80%;
+    font-size:20px;
+    padding-bottom:10px;
+  }
+  #image{
+  max-width: 100%;
+  width: max(300px,45vw);
+  height: auto;
+    object-fit: cover;
+    margin:10px;
+  }
+  #main,footer{
+  background-color:#e0e0d0;
+  }
+  #tribute-info,ul{
+    display:flex;
+    flex-direction:column;
+    margin:auto;
+    gap:20px;
+  }
+  #caption-info{
+  padding-top: 20px;
+  }
+  li{
+    margin:0;
+    max-width:500px;
+    font-size:18px;
+  }
+  #tribute-info p{
+  text-align: center;
+  max-width: 600px;
+  margin:auto;
+  }
+  h2{
+    color:rgb(148,20,20);
+    font-size:40px;
+    margin-bottom:5px;
+  }
+  .trans{
+    font-size:20px;
+    color:#94141480
+  }
+  .links{
+    display:flex;
+    flex-direction:column;
+    text-align:center;
+    gap:25px;
+  }
+  a:link,a:visited{
+    color:#000060;
+  }
+  a:hover{
+    color:purple;
+    cursor:pointer;
+  }
+  a:active{
+    color:rgb(148,20,20);
+  }
+  a{
+    text-decoration:underline;
+  }
+  #heading{
+    padding-top:40px;
+  }
+  .links p b{
+    color:purple;
+  }
+  .links p:last-of-type a:link,.links p:last-of-type a:visited{
+    color:purple;
+  }
+  .links p:last-of-type a:hover{
+    color:#000060;
+  }
+  .links p:last-of-type a:active{
+    color:rgb(148,20,20);
+  }

@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;1000&display=swap" rel="stylesheet">
+    <title>Technical Doc of C</title>
+  </head>
+  <body>
+    <nav id="navbar">
+      <header>C Documentation</header>
+      <div class="scroll">
+        <a class="nav-link" href="#Introduction">Introduction</a>
+        <a class="nav-link" href="#Your_First_Program">Your First Program</a>
+        <a class="nav-link" href="#Structure_of_a_C_Program">Structure of a C Program</a>
+        <a class="nav-link" href="#Data_Types">Data Types</a>
+        <a class="nav-link" href="#Variables_and_Constants">Variables and Constants</a>
+        <a class="nav-link" href="#Operators">Operators</a>
+        <a class="nav-link" href="#Conditional_Statements">Conditional Statements</a>
+        <a class="nav-link" href="#Loops">Loops</a>
+        <a class="nav-link" href="#Functions">Functions</a>
+        <a class="nav-link" href="#Pointers">Pointers</a>
+        <a class="nav-link" href="#Memory_Allocation">Memory Allocation</a>
+        <a class="nav-link" href="#File_I/O">File I/O</a>
+        <a class="nav-link" href="#Structures,_Unions_and_Enums">Structures, Unions and Enums</a>
+        <a class="nav-link" href="#References">References</a>
+        </div>
+    </nav>
+    <main id="main-doc">
+      <h1>Technical Documentation of the C Language</h1>
+      <section class="main-section" id="Introduction">
+        <header>Introduction</header>
+        <p>C is a powerful general-purpose programming language. It is widely used for system programming, developing operating systems, embedded systems, and as a foundation for learning other languages. Developed in the early 1970s by Dennis Ritchie at Bell Labs, C remains a critical tool in modern computing.
+
+</p>
+      </section>
+      <section class="main-section" id="Your_First_Program">
+        <header>Your First Program</header>
+<p>Open your text editor or IDE. Write the following code and save it to a '.c' file of any name:</p>
+<div class="code">
+<code>#include &lt;stdio.h&gt;</code>
+<code>&nbsp;</code>
+<code>int main(){</code>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;printf("Hello world!");</code>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;return 0;</code>
+<code>}</code>
+</div>
+<p>Compile it using your compiler and run the executable with the same name of the .c file.</p>
+      </section>
+      <section class="main-section" id="Structure_of_a_C_Program">    <header>Structure of a C Program</header>
+      <p>A typical C program includes:</p>
+      <ul>
+        <li><b>Preprocessor directives</b>: Begin with <span id="code">#</span> (e.g., <span id="code">#include &lt;stdio.h&gt;</span>).</li>
+        <li><b>Main function</b>: The entry point (<span id="code">int main() {}</span>).</li>
+        <li><b>Statements</b>: End with a semicolon (<span id="code">;</span>).
+</li>
+      </ul>
+      <p>Example:</p>
+      <div class="code">
+        <code>#include &lt;stdio.h&gt;</code>
+        <code>&nbsp;</code>
+        <code>int main() {</code>
+        <code>&nbsp;&nbsp;&nbsp;&nbsp;printf("This is a basic structure of a C program.");</code>
+        <code>&nbsp;&nbsp;&nbsp;&nbsp;return 0;</code>
+        <code>}</code>
+      </div>
+      <p>This program demonstrates the minimum components required for a C program to compile and run.</p>
+      </section>
+      <section class="main-section" id="Data_Types">
+        <header>Data Types</header>
+        <p>Data types in C can be divided into two broad classes:
+        <ul>
+          <li><b>Primitive types</b>: <span id="code">int</span>, <span id="code">float</span>, <span id="code">char</span>, <span id="code">double</span>, etc.</li>
+          <li><b>Derived types</b>: Arrays, pointers, structures.</li>
+        </ul>
+      </section>
+      <section class="main-section" id="Variables_and_Constants">
+        <header>Variables and Constants</header>
+        <ul>
+          <li>
+  <p><b>Variables</b>: Declared with a type.</p>
+          </li>
+        </ul>
+  <p>Example:</p>
+  <div class="code">
+    <code>int a = 10;</code>
+    <code>float b = 3.14;</code>
+    <code>char c = 'C';</code>
+  </div>
+  <p>This code declares variables of different primitive data types and initializes them with values.</p>
+        <ul>
+          <li>
+  <p><b>Constants</b>: Declared with a type and <span id="code">const</span> keyword.</p>
+          </li>
+        </ul>
+        <div class="code">
+          <code>const int maxUsers = 100;</code>
+        </div>
+        <p>The <span id="code">maxUsers</span> variable is a constant, meaning its value cannot change during program execution.</p>
+      </section>
+      <section class="main-section" id="Operators">
+        <header>Operators</header>
+        <p>Operators can be broadly classfied into many types like:</p>
+        <ul>
+          <li>
+            <p><b>Arithmetic Operators</b>: Addition (<span id="code">+</span>), Subtraction (<span id="code">-</span>), Multiplication (<span id="code">*</span>), Division (<span id="code">/</span>) and Modulus (<span id="code">%</span>).</p>
+          </li>
+        </ul>
+        <p>These operators perform arithmetic operations on numbers and return their values.</p>
+      <div class="code">
+        <code>int a=10, b=3;</code>
+        <code>printf("Addition: %d\n",a+b); //Prints the sum of a and b, which is 13.</code>
+        <code>printf("Subtraction: %d\n",a-b); //Prints the difference of a and b, which is 7.</code>
+        <code>printf("Multiplication: %d\n",a*b); //Prints the product of a and b, which is 30.</code>
+        <code>printf("Division: %d\n",a/b); //Prints the quotient of a divided by b, which is 3.</code>
+        <code>printf("Modulus: %d\n",a%b); //Prints the remainder of a divided by b, which is 1.</code>
+      </div>
+      <p>This code snippet performs various arithmetic operations between two integers <span id="code">a</span> and <span id="code">b</span> and prints their results.</p>
+      <ul>
+        <li><b>Relational Operators</b>: Equal to (<span id="code">==</span>), Not Equal to (<span id="code">!=</span>), Less Than (<span id="code"><</span>), Greater Than (<span id="code">></span>), Less Than or Equal to<span id="code"><=</span>, Greater Than or Equal to (<span id="code">>=</span>).</li>
+        <li><b>Logical Operators</b>: Logical NOT (<span id="code">!</span>), Logical AND (<span id="code">&&</span>), Logical OR (<span id="code">||</span>).</li>
+      </ul>
+      <p>Statements consisting of these operators return 1 if they are True and 0 if False.</p>
+      <div class="code">
+        <code>int a=5, b=10;</code>
+        <code>printf("Inequality: %d\n",a!=b); //Prints 1 as a is not equal to b.</code>
+        <code>printf("Comparison: %d\n",a&gt;b); //Prints 0 as a is not greater than b.</code>
+        <code>printf("Logical NOT: %d\n",!(a!=b)); //As a!=b returns 1, !(a!=b) will print 0.</code>
+        <code>printf("Logical OR: %d\n",(a!=b)||(a>b)); //As a!=b and a>b return 1 and 0 respectively, the statement here will print 1.</code>
+        <code>printf("Logical AND: %d\n",(a!=b)&&(a>b)); //As a!=b and a>b return 1 and 0 respectively, the statement here will print 0.</code>
+      </div>
+      <p>This code evaluates logical and relational expressions between two integers/statements and prints their results.</p>
+      <ul>
+        <li><b>Bitwise Operators</b>: Bitwise NOT (<span id="code">~</span>), Bitwise AND (<span id="code">&</span>), Bitwise OR (<span id="code">|</span>), Bitwise XOR (<span id="code">^</span>), Right Shift (<span id="code">>></span>), Left Shift (<span id="code">^</span>).</li>
+    </ul>
+      <div class="code">
+        <code>int a=5, b=10; //5=0101, 10=1010</code>
+        <code>printf("Bitwise NOT: %d\n",~a); //Prints -6 by performing bitwise NOT on a.</code>
+        <code>printf("Bitwise OR: %d\n",a|b); //Prints 15 by performing bitwise OR on a and b.</code>
+        <code>printf("Bitwise AND: %d\n",a&b); //Prints 10 by performing bitwise AND on a and b.</code>
+        <code>printf("Bitwise XOR: %d\n",a|b); //Prints 15 by performing bitwise XOR on a and b.</code>
+        <code>printf("Right Shift: %d\n",b>>2); //Prints 2 by shifting the bits of b two places to the right.</code>
+        <code>printf("Bitwise OR: %d\n",b&lt;&lt;a); //Prints 320 by shifting the bits of b 'a' places to the left and filling the empty places with 0s.</code>
+      </div>
+      <p>This code evaluates logical and relational expressions between two integers/statements and prints their results.</p>
+    <ul>
+        <li><b>Assignment Operators</b>: Simple:<span id="code">=</span>, Compound: <span id="code">+=</span> <span id="code">-=</span>, <span id="code">*=</span>, <span id="code">/=</span>, <span id="code">%=</span>.</li>
+      </ul>
+      <p>These operators assign/reassign values to variables.</p>
+      <div class="code">
+        <code>int a=5; //Variable a is assigned the value of 5.</code>
+        <code>a+=7; //a is now reassigned to 12.</code>
+        <code>a-=2; //a is now reassigned to 10.</code>
+        <code>a*=3; //a is now reassigned to 30.</code>
+        <code>a/=6; //a is now reassigned to 5.</code>
+        <code>a%=4; //a is now reassigned to 1.</code>
+      </div>
+      <p>Using assignment operators, this code assigns/reassigns variable <span id="code">a</span> to various values.</p>
+      </section>
+      <section class="main-section" id="Conditional_Statements">
+        <header>Conditional Statements</header>
+        <p>Conditional Statements in C come in 3 main categories:</p>
+        <ul>
+          <li><p><b>Ternary/Conditional Operator</b> (<span id="code">?:</span>):The Ternary Operator evaluates a condition and returns a value depending on whether the condition is True or False.</p></li>
+        </ul>
+        <div class="code">
+          <code>int a, b;</code>
+          <code>scanf("%d %d", &a, &b); //Inputting values to a and b</code>
+          <code>printf("The greater number is %d.", a>b?a:b);</code>
+        </div>
+      <p>Here, the code takes two inputs from the user and returns the greater number using Ternary Operator.</p>
+        <ul>
+          <li><p><b>If - Else If - Else</b>: These conditional statements work as such:
+            <ul>
+              <li>The condition of the <span id="code">if</span> block is evaluated first. If the condition is <span id="code">true</span>, then the statement within the <span id="code">if</span> block is executed. If <span id="code">false</span>, then the next condition is checked.</li>
+              <li>Then the condition of the subsequent<span id="code">else if</span> block is evaluated next. If the condition is <span id="code">True</span>, then the statement within the <span id="code">else if</span> block is executed. If <span id="code">false</span>, then the next condition is checked.</li>
+              <li>If all the <span id="code">if</span> and <span id="code">else if</span> conditions are <span id="code">false</span>, the statements within the <span id="code">else<span> block are executed as a fallback.</li>
+            </ul>
+            </p>
+          </li>
+        </ul>
+        <div class="code">
+          <code>int a;</code>
+          <code>scanf("%d", &a);</code>
+          <code>if(a>0){</code>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;printf("%d is a positive number.", a);</code>
+          <code>}else if(a&lt;0){</code>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;printf("%d is a negative number.", a);</code>
+          <code>}else{</code>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;printf("The number is zero.");</code>
+          <code>}</code>
+        </div>
+      <p>Here, the code takes an integral input from the users and checks whether that inputted number is positive, negative or zero using if - else if - else statements.</p>
+          <ul>
+          <li><p><b>Switch - Case</b>: These conditional statements work as such:
+            <ul>
+              <li>The expression within the <span id="code">switch</span> block is evaluated and then compared with the value in each <span id="code">case</span>.</li>
+              <li>If the value of a <span id="code">case</span> matches with that of the expression in the <span id="code">switch</span> block, then all the statements under that <span id="code">case</span> block are executed.</li>
+              <li>If none of the values of in the <span id="code">cases</span> match with that of the expression in the <span id="code">switch</span> block, then all the statements under the <span id="code">default</span> block are executed.</li>
+              </ul>
+            </p>
+          </li>
+        </ul>
+        <div class="code">
+          <code>char grade;</code>
+          <code>scanf("%c", &grade);</code>
+          <code>switch(grade){</code>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;case 'A';</code>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;printf("Amazing grade! You pass with flying colors!");</code>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;break;</code>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;case 'B';</code>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;printf("Could be better, but you still did decent!");</code>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;break;</code>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;case 'C';</code>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;printf("Meh. Average.");</code>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;break;</code>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;case 'D';</code>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;printf("Almost failed there bucko.");</code>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;break;</code>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;case 'FR';</code>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;printf("Utter failure");</code>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;break;</code>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;default;</code>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;printf("Invalid grade");</code>
+          <code>}</code>
+        </div>
+      <p>Here, the code takes an character input from the user and prints an appropriate output using switch - case statements.</p>
+      </section>
+      <section class="main-section" id="Loops">
+        <header>Loops</header>
+        <p>In C, Loops come in 3 types:</p>
+        <ul>
+          <li><p><b>For Loops</b>: <span id="code">for</span> loops iterate over a set of statements for a fixed number of times specified by the user. The <span id="code">for</span> loop declaration consists of three parts:</p>
+        <ul>
+          <li>Initialization: The iterating variable is initialized to some value.</li>
+          <li>Condition: The loop iterates till the specified condition becomes <span id="code">false</span>.</li>
+          <li>Change: After each iteration, the iterating variable changes in value.</li>
+        </ul>
+          </li>
+        </ul>
+        <div class="code">
+          <code>for(int i = 0; i &lt; 5; i++){</code>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;printf("Number at current iteration: %d", i);</code>
+          <code>}</code>
+        </div>
+      <p>This code snippet initializes iterating variable <span id="code">i</span> and prints its value for each iteration of the <span id="code">for</span> loop.</p>
+        <ul>
+          <li><p><b>While Loops</b>: <span id="code">while</span> loops iterate over a set of statements till the condition within the loop declaration becomes <span id="code">false</span>.</p>
+<p>In both <span id="code">while</span> and <span id="code">for</span> loops, the conditions are checked before execution of the statements within those loops.</p>
+          </li>
+        </ul>
+        <div class="code">
+          <code>int a = 1;</code>
+          <code>while(a &lt; 5){</code>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;printf("Iterating statement number %d", a);</code>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;a++;</code>
+          <code>}</code>
+        </div>
+      <p>Here, the code initializes a variable <span id="code">a</span> and its value is printed for each iteration of the <span id="code">while</span> loop.</p>
+          <ul>
+          <li><p><b>Do - While Loops</b>: <span id="code">do-while</span> loops are very similar to <span id="code">while</span> loops barring one difference.</p>
+          <p>The statements within the loop are executed before the condition of the loop is checked.</p>
+          </li>
+        </ul>
+        <div class="code">
+          <code>int a = 1;</code>
+          <code>do{</code>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;printf("Iterating statement number %d", a);</code>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;a++;</code>
+          <code>}while(a &lt; 5)</code>
+        </div>
+      <p>Here, the code initializes a variable <span id="code">a</span> and its value is printed for each iteration of the <span id="code">do-while</span> loop.</p>
+      </section>
+      <section class="main-section" id="Functions">
+        <header>Functions</header>
+        <p>A function is a block of code that performs a specific task. It takes input (optional), performs an operation, and returns a result (optional).</p>
+        <p><b>Defining Functions</b>: Functions in C are defined as such:</p>
+        <ul>
+          <li><b>Function Name and Type</b>: The function's type and name are first defined in the function.</li>
+          <li><b>Function Inputs</b>: The function's inputs and their corresponding types are then defined as parameters to the function.</li>
+          <li><b>Function Processing and Output</b>: The statements within the function are executed and then the resultant value is returned with the <span id="code">return</span> keyword.</li>
+        </ul>
+        <p>As an example:</p>
+        <div class="code">
+          <code>int add(int a, int b){</code>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;int sum = a + b;</code>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;return sum;</code>
+          <code>}</code>
+        </div>
+        <p>The <span id="code">add</span> function returns the sum of two inputs <span id="code">a</span> and <span id="code">b</span>.</p>
+        <p><b>Passing Parameters to Functions</b>: Parameters can be passed to functions in two ways:</p>
+        <ul>
+          <li><b>Pass by Value</b>: Copies of the arguments are passed, and modifications don't affect the original variables. (like the <span id="code">add</span> function above)</li>
+          <li><b>Pass by Reference</b>: The addresses of the arguments are passed as inputs to the function, and any modifications to the inputs affect the original variables.</li>
+        </ul>
+        <p>As an example:</p>
+        <div class="code">
+          <code>void add2(int* a){</code>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;(*a) += 2;</code>
+          <code>}</code>
+        </div>
+        <p>The <span id="code">add2</span> function increments the value of <span id="code">a</span> by 2, which is only possible using Pass by Reference.</p>
+      </section>
+      <section class="main-section" id="Pointers">
+        <header>Pointers</header>
+        <p>Pointers are variables that store the memory addresses of other variables.</p>
+        <p>For example:</p>
+        <div class="code">
+          <code>int x = 5;</code>
+          <code>int* ptr = &x;</code>
+          <code>printf("Address of x: %p\n", ptr);</code>
+          <code>printf("Value of x: %p\n", *ptr);</code>
+        </div>
+        <p>Here, the <span id="code">ptr</span> variable stores the address of variable <span id="code">x</span>. The value stored at that address can be accessed using the dereference operator (<span id="code">*</span>).</p>
+        <p><b>Pointer Arithmetic:</b> As arrays are a contiguous sequence of values stored in memory, with a pointer to an element of the array, we can access its other elements by incrementing or decrementing the pointer.</p>
+        <div class="code">
+          <code>int arr[] = {1, 2, 3};</code>
+          <code>int* ptr = arr;</code>
+          <code>for(int i = 0; i < 3; i++){</code>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;printf("Element at index %d of the array is %d",i,*(ptr+i));</code>
+          <code>}</code>
+        </div>
+        <p>In this code snippet, we print the elements of the array using Pointer Arithmetic.</p>
+      </section>
+      <section class="main-section" id="Memory_Allocation">
+        <header>Memory Allocation</header>
+        <p>Contained in the <span id="code">&lt;stdlib.h&gt;</span> library, C provides functions for memory management:</p>
+        <ul>
+          <li><p><span id="code">malloc</span><b> and </b><span id="code">calloc</span>: These functions allocates memory of user-specified size to a pointer dynamically at runtime.</p></li>
+          <li><p><span id="code">realloc</span>: This function reallocates memory of user-specified size to a pointer with previously allocated memory, essentially giving the user a way to resize a memory block dynamically.</p></li>
+          <li><p><span id="code">free</span>: This function deallocates previously allocated memory of a pointer and releases it back to the operating system at runtime.</p></li>
+        </ul>
+        <div class="code">
+          <code>int *arr = (int *)calloc(5, sizeof(int));</code>
+          <code>if (arr==NULL){</code>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;printf("Memory Allocation Failed");</code>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;return 0;</code>
+          <code>}</code>
+          <code>&nbsp;</code>
+          <code>for(int i=0; i&lt;5; i++){</code>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;*(arr + i) = i*2;</code>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;printf("arr[%d] = %d\n", i, *(arr + i));</code>
+          <code>}</code>
+          <code>&nbsp;</code>
+          <code>arr = (int *)realloc(arr, 6 * sizeof(int));</code>
+          <code>arr[5] = 10;</code>
+          <code>printf("arr[%d] = %d\n", 5, arr[5]);</code>
+          <code>free(arr);</code>
+        </div>
+        <p>This program dynamically allocates memory for an array of integers, assigns values to the array, reallocates memory to allow an extra element, and frees the allocated memory to avoid memory leaks.</p>
+      </section>
+      <section class="main-section" id="File_I/O">
+        <header>File I/O</header>
+        <p>C provides functions to handle file input and output, including:</p>
+        <ul>
+          <li><p><span id="code">fopen</span>: This function opens a file for reading, writing and/or appending(depending on the mode) by returning a pointer to the <span id="code">FILE</span> object if successful or a <span id="code">NULL</span> pointer otherwise.</p></li>
+          <li><p><span id="code">fclose</span>: This function closes a <span id="code">FILE</span> object opened with fopen.</p></li>
+          <li><p><span id="code">fprintf</span>:This function is used to write formatted output to a file.</p></li>
+          <li><p><span id="code">fscanf</span>:This function is used to read formatted input from a file.</p></li>
+        </ul>
+        <div class="code">
+          <code>FILE *file = fopen("example.txt", "w");</code>
+          <code>if (file){</code>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;fprintf(file, "Hello, File!\n");</code>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;fclose(file);</code>
+          <code>}</code>
+          <code>&nbsp;</code>
+          <code>file = fopen("example.txt", "r");</code>
+          <code>if (file){</code>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;char buffer[50];</code>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;fscanf(file, "%s", buffer);</code>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;printf("Content: %s\n", buffer);</code>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;fclose(file);</code>
+          <code>}</code>
+        </div>
+        <p>This code creates a file example.txt, writes a string to it, then reads the string and prints it to the console.</p>
+      </section>
+      <section class="main-section" id="Structures,_Unions_and_Enums">
+        <header>Structures, Unions and Enums</header>
+        <ul>
+          <li>
+            <p><b>Structures</b>: Structures group variables of different types under one name. Each variable within a structure is called a member of the structure.</p>
+          </li>
+        </ul>
+        <p>Example:</p>
+        <div class="code">
+          <code>struct Point {</code>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;int x;</code>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;int y;</code>
+          <code>};</code>
+          <code>&nbsp;</code>
+          <code>int main() {</code>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;struct Point p1 = {10, 20};</code>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;printf("Point: (%d, %d)\n", p1.x, p1.y);</code>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;return 0;</code>
+          <code>}</code>
+        </div>
+        <p>This program defines a <span id="code">struct</span> named <span id="code">Point</span> with two integer members, <span id="code">x</span> and <span id="code">y</span>. An instance of <span id="code">Point</span> is created and its values are printed.</p>
+        <ul>
+          <li>
+            <p><b>Unions</b>: Unions are similar to structures but use shared memory for their members and hence, can only store one member's value, setting the others' to 0 or <span id="code">NULL</span>.</p>
+          </li>
+        </ul>
+        <p>Example:</p>
+        <div class="code">
+          <code>union Data {</code>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;int i;</code>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;float f;</code>
+          <code>};</code>
+          <code>&nbsp;</code>
+          <code>int main() {</code>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;union Data d;</code>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;d.i = 10;</code>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;printf("Integer: %d\n", d.i);</code>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;d.f = 5.5</code>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;printf("Float: %d\n", d.f);</code>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;return 0;</code>
+          <code>}</code>
+        </div>
+        <p>In this program, the <span id="code">union Data</span> can hold an integer or a float, but not both simultaneously due to shared memory.</p>
+        <ul>
+          <li>
+            <p><b>Enums</b>: Enums define a set of named integer constants..</p>
+          </li>
+        </ul>
+        <p>Example:</p>
+        <div class="code">
+          <code>enum Day {Sunday, Monday, Tuesday};</code>
+          <code>&nbsp;</code>
+          <code>int main() {</code>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;enum Day today = Monday;</code>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;printf("Today is: %d\n", today);</code>
+          <code>&nbsp;&nbsp;&nbsp;&nbsp;return 0;</code>
+          <code>}</code>
+        </div>
+        <p>The <span id="code">enum Day</span> defines constants representing days of the week. The integer value of <span id="code">Monday</span> is assigned to <span id="code">today</span>.</p>
+      </section>
+      <section class="main-section" id="References">
+        <header>References</header>
+        <ol>
+          <li><a href="https://technical-documentation-page.freecodecamp.rocks/">freeCodeCamp: Technical Documentation Page</a></li>
+          <li><a href="https://www.geeksforgeeks.org/c-programming-language/">GeeksforGeeks: Basics of C Programming</a></li>
+          <li><a href="https://www.tutorialspoint.com/cprogramming/index.htm">TutorialsPoint: C Programming Language</a></li>
+          <li><a href="https://www.programiz.com/c-programming">Programiz: Learn C Programming</a></li>
+          <ol>
+      </section>
+    </main>
+  </body>
+</html>

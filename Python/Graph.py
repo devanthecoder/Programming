@@ -1,0 +1,21 @@
+import matplotlib.pyplot as plt
+import pandas as pd
+import numpy as np
+Sales = pd.read_csv(r"C:\Users\HP\Desktop\Devan\Computer Stuff\Spreadsheet\Sales.csv")
+mn = Sales['Month_Num'].tolist()
+fc = Sales['Facecream'].tolist()
+fw = Sales['Facewash'].tolist()
+tp = Sales['Toothpaste'].tolist()
+bs = Sales['Bathing_Soap'].tolist()
+s = Sales['Shampoo'].tolist()
+m = Sales['Moisturizer'].tolist()
+plt.plot(mn,fc,color='blue',marker='>',label='Facecream')
+plt.plot(mn,fw,color='black',marker='<',label='Facewash')
+plt.plot(mn,tp,color='red',marker='^',label='Toothpaste')
+plt.plot(mn,bs,color='green',marker='v',label='Soap')
+plt.plot(mn,s,color='cyan',marker='d',label='Shampoo')
+plt.plot(mn,m,color='magenta',marker='D',label='Moist.Cream')
+plt.legend()
+plt.xlabel("Month Number")
+plt.ylabel("No. of units sold")
+plt.show()
