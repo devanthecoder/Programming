@@ -1,0 +1,106 @@
+HDL ASSIGNMENT:
+
+Testbench:
+`timescale 1ns/1ns
+module quadadder_tb;
+  reg [3:0] A,B;
+  wire [3:0] Sum;
+  wire Overflow;
+  quadadder adn(.A(A),.B(B),.Sum(Sum),.Overflow(Overflow));
+  initial begin
+    $dumpfile("quadadder.vcd");
+    $dumpvars(0,quadadder_tb);
+    $monitor("At time t = %t, A = %b, B = %b, Sum = %b, Overflow = %b",$time,A,B,Sum,Overflow);
+    A=-4;B=-7;#20;
+    A=4;B=4;#20;
+    A=-5;B=-3;#20;
+    A=-6;B=4;#20;
+    $finish;
+  end
+endmodule
+
+module bitadder_tb;
+  reg A,B,Cin;
+  wire Sum,Cout;
+  bitadder adn(.A(A),.B(B),.Cin(Cin),.Sum(Sum),.Cout(Cout));
+  initial begin
+    $dumpfile("nand.vcd");
+    $dumpvars(0,bitadder_tb);
+    $monitor("At time t = %t, A = %b, B = %b, Sum = %b, Cout = %b",$time,A,B,Sum,Cout);
+    A=0;B=0;Cin=0;#20;
+    A=0;B=1;Cin=1;#20;
+    A=1;B=1;Cin=0;#20;
+    A=1;B=0;Cin=1;#20;
+    $finish;
+  end
+endmodule
+
+module XOR_tb;
+  reg A,B;
+  wire NAND;
+  XOR adn(.A(A),.B(B),.Y(NAND));
+  initial begin
+    $dumpfile("nand.vcd");
+    $dumpvars(0,XOR_tb);
+    $monitor("At time t = %t, A = %b, B = %b, Y = %b",$time,A,B,NAND);
+    A=0;B=0;#20;
+    A=0;B=1;#20;
+    A=1;B=1;#20;
+    A=1;B=0;#20;
+    $finish;
+  end
+endmodule
+
+Design:
+
+`timescale 1ns/1ns
+module NAND1(
+  input A,B,
+  output Y
+);
+  assign #1 Y = ~(A&B);
+endmodule
+
+module bitadder(
+  input A,B,Cin,
+  output Cout,Sum
+);
+  wire AnandB,AxorB,w1,w2,AxorBdotC,x1,x2;
+  NAND1 one(.A(A),.B(B),.Y(AnandB));
+  NAND1 two(.A(A),.B(AnandB),.Y(w1));
+  NAND1 three(.A(B),.B(AnandB),.Y(w2));
+  NAND1 four(.A(w1),.B(w2),.Y(AxorB));
+  NAND1 five(.A(Cin),.B(AxorB),.Y(AxorBdotC));
+  NAND1 six(.A(AxorBdotC),.B(AnandB),.Y(Cout));
+  NAND1 seven(.A(Cin),.B(AxorBdotC),.Y(x1));
+  NAND1 eight(.A(AxorBdotC),.B(AxorB),.Y(x2));
+  NAND1 nine(.A(x1),.B(x2),.Y(Sum));
+endmodule
+
+module quadadder(
+  input [3:0] A,
+  input [3:0] B,
+  output [3:0] Sum,
+  output Overflow
+);
+  wire C[4:0];
+  assign C[0]=0;
+  genvar i;
+  generate
+    for(i=0;i<4;i=i+1)begin:loop
+      bitadder inst(.A(A[i]),.B(B[i]),.Cin(C[i]),.Cout(C[i+1]),.Sum(Sum[i]));
+    end
+  endgenerate
+  Overflow = C[4];
+endmodule
+
+module XOR1(
+  input A,B,
+  output Y
+);
+  wire AnandB,w1,w2;
+  NAND1 one(.A(A),.B(B),.Y(AnandB));
+  NAND1 two(.A(A),.B(AnandB),.Y(w1));
+  NAND1 three(.A(B),.B(AnandB),.Y(w2));
+  NAND1 four(.A(w1),.B(w2),.Y(Y));
+endmodule
