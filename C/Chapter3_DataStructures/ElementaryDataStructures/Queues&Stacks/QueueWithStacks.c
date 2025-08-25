@@ -8,7 +8,7 @@ Queue InitalizeQueue(int Size, double* Q1, double* Q2){
     return QQ;
 }
 int IsEmpty(Queue Q){
-    if(Q.S1.top==-1&&Q.S2.top==-1) return 1;
+    if(Q.S1.top==Q.S2.top) return 1;
     else return 0;
 }
 void Enqueue(Queue* Q, double x){
