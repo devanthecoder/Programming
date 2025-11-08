@@ -1,2 +1,0 @@
-Q1) Explain why the dynamic-set operation INSERT on a singly linked list can be implemented in O(1) time, but the worst-case time for DELETE is O(n). 
-Ans: INSERT directly in inserts one node between a given node and the next one and hence only takes constant time, but DELETE requires searching through the list to find the node to be deleted and hence the running time for this algo is dependant on where the node-to-be-deleted is located in the list, worst case being that the key isn't present or it is at the end of the list, giving worst case runtime of theta(n).

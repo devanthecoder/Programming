@@ -41,6 +41,7 @@
         "stdexcept": "cpp",
         "streambuf": "cpp",
         "typeinfo": "cpp",
-        "chrono": "cpp"
+        "chrono": "cpp",
+        "cs_la1_q1": "c"
     }
 }

@@ -1,49 +1,41 @@
-#include <stdio.h>
 #include <stdlib.h>
-
+#include <stdio.h>
 typedef struct{
+    double* S;
     int Size;
     int top;
-    double* S;
-} Stack;
-
-Stack InitializeStack(int Size, double* S) {
-    Stack SS;
-    SS.top = -1;
-    SS.Size = Size;
-    SS.S = S;
-    return SS;
+}Stack;
+Stack DefineStack(int Size){
+    Stack S;
+    S.S = (double*)calloc(Size, sizeof(double));
+    S.top = -1;
+    S.Size = Size;
+    return S;
 }
-
-void Push(Stack* S, double x) {
-    if (S->top == S->Size - 1) {
-        fprintf(stderr, "OVERFLOW\n");
-        exit(EXIT_FAILURE); // Optional: to stop the program
-    } else {
-        S->top += 1;
-        S->S[S->top] = x;
-    }
+int isEmpty(Stack S){
+    if(S.top==-1)return 1;
+    else return 0;
 }
-
-int isEmpty(Stack* S) {
-    return S->top == -1;
-}
-
-double Pop(Stack* S) {
-    if (isEmpty(S)) {
-        fprintf(stderr, "UNDERFLOW\n");
+void Push(Stack* S, double x){
+    if(S->top==S->Size-1){
+        fprintf(stderr, "OVERFLOW");
         exit(EXIT_FAILURE);
-    } else {
-        S->top -= 1;
-        return S->S[S->top + 1];
     }
+    S->top += 1;
+    S->S[S->top] = x;
 }
-
-double Top(Stack* S) {
-    if (isEmpty(S)) {
-        fprintf(stderr, "RUNTIME ERROR\n");
+double Pop(Stack* S){
+    if(isEmpty(*S)){
+        fprintf(stderr, "UNDERFLOW");
         exit(EXIT_FAILURE);
-    } else {
-        return S->S[S->top];
     }
+    S->top -= 1;
+    return S->S[S->top+1];
+}
+double Top(Stack S){
+    if(isEmpty(S)){
+        fprintf(stderr, "RUNTIME ERROR");
+        exit(EXIT_FAILURE);
+    }
+    return S.S[S.top];
 }

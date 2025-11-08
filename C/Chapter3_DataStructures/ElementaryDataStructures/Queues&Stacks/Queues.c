@@ -1,53 +1,52 @@
-#include <stdio.h>
 #include <stdlib.h>
-
+#include <stdio.h>
 typedef struct{
-    int Size;
-    int head, tail;
     double* Q;
+    int Size;
+    int Head;
+    int Tail;
 }Queue;
-Queue InitializeQueue(int Size, double* Q){
-    Queue QQ;
-    QQ.head = 0;
-    QQ.tail = 0;
-    QQ.Size = Size;
-    QQ.Q = Q;
-    return QQ;
+Queue DefineQueue(int Size){
+    Queue Q;
+    Q.Q = (double*)calloc(Size, sizeof(double));
+    Q.Head = 0;
+    Q.Tail = 0;
+    Q.Size = Size;
+    return Q;
 }
-int isEmpty(Queue* Q){
-        if(Q->head==Q->tail)return 1;
-        else return 0;
+int isEmpty(Queue S){
+    if(S.Head==S.Tail)return 1;
+    else return 0;
 }
 void Enqueue(Queue* Q, double x){
-    if(Q->head==(Q->tail+1)%Q->Size){
-        fprintf(stderr, "OVERFLOW\n");
+    if(Q->Head==Q->Tail+1){
+        fprintf(stderr, "OVERFLOW");
         exit(EXIT_FAILURE);
     }
-    else Q->Q[Q->tail] = x;
-    Q->tail=(Q->tail+1)%Q->Size;
+    int prevpos = Q->Tail;
+    Q->Tail = (Q->Tail+1)%Q->Size;
+    Q->Q[prevpos] = x;
 }
 double Dequeue(Queue* Q){
-    if (isEmpty(Q)){
-        fprintf(stderr, "UNDERFLOW\n");
+    if(isEmpty(*Q)){
+        fprintf(stderr, "UNDERFLOW");
         exit(EXIT_FAILURE);
     }
-    else {
-        double x = Q->Q[Q->head];
-        Q->head=(Q->head+1)%Q->Size;
-        return x;
-    }
+    double x = Q->Q[Q->Head];
+    Q->Head = (Q->Head+1)%Q->Size;
+    return x;
 }
-double Head(Queue* Q){
-    if (isEmpty(Q)){
-        fprintf(stderr, "RUNTIME ERROR\n");
+double Head(Queue Q){
+    if(isEmpty(Q)){
+        fprintf(stderr, "RUNTIME ERROR");
         exit(EXIT_FAILURE);
     }
-    else return Q->Q[Q->head];
+    return Q.Q[Q.Head];
 }
-double Tail(Queue* Q){
-    if (isEmpty(Q)){
-        fprintf(stderr, "RUNTIME ERROR\n");
+double Tail(Queue Q){
+    if(isEmpty(Q)){
+        fprintf(stderr, "RUNTIME ERROR");
         exit(EXIT_FAILURE);
     }
-    else return Q->Q[Q->tail-1];
+    return Q.Q[!Q.Tail?Q.Size-1:Q.Tail-1];
 }
